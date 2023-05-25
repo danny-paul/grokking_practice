@@ -1,21 +1,15 @@
 import CH_2.sorting as sorting
 import random_number_functions.rand_num_fxns as ran_num_fxns
+from  CH_3.recursion_practice import factorial_by_recursion
+from CH_4.recursion_area_example import largest_subsquare__recursion
 
 def main():
-    rand_arr: list[int] = ran_num_fxns.generate_unordered_rand_list()
-    print('random Arr: ', end="\n\t")
-    print(rand_arr, end="\n\n")
+	ordered_rand_arr: list[int] = ran_num_fxns.generate_ordered_rand_list(2, 100, 400)
 
-    sorted_arr: list[int] = sorting.selection_sort(rand_arr, 'asc')
-    
-    print('selection_sort: ', end="\n\t")
-    print(sorted_arr, end='\n\n')
+	length, width = largest_subsquare__recursion(ordered_rand_arr[0], ordered_rand_arr[1], 0)
 
-    sorted_arr = rand_arr.copy()
-    sorted_arr.sort()
+	print('Given the area:\n\t', str(ordered_rand_arr[0]), ' x ', str(ordered_rand_arr[1]), '\n The largest subsquares that can compose this area is of size:\n\t', str(length), ' x ', str(width))
 
-    print('built in sort: ', end='\n\t')
-    print(sorted_arr, end='\n\n')
 
 if __name__ == '__main__':
-    main()
+	main()
